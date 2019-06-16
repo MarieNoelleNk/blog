@@ -1,5 +1,7 @@
 <?php $this->title = "Mon Blog"; ?>
 
+<h1> Billet simple pour l'Alaska </h1>
+
 <?php foreach ($posts as $post):
     ?>
     <article>
