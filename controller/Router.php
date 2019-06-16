@@ -1,7 +1,7 @@
 <?php
 
 require_once 'controller/HomeCtrl.php';
-require_once 'controller/postCtrl.php';
+require_once 'controller/PostCtrl.php';
 require_once 'view/View.php';
 
 class Router
@@ -12,12 +12,12 @@ class Router
     public function __construct()
     {
         $this->homeCtrl = new HomeCtrl();
-        $this->postCtrl = new postCtrl();
+        $this->postCtrl = new PostCtrl();
     }
 
 
     // Traite une requête entrante
-    public function routerRequete() {
+    public function routerRequest() {
         try{
             if (isset($_GET['action'])){
                 if($_GET['action'] == 'post'){
