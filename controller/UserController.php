@@ -1,87 +1,81 @@
-<?php
-
-require_once 'model/PostModel.php';
-require_once 'model/CommentModel.php';
-require_once 'model/AdminModel.php';
-
 class UserController
 {
-    private $post;
-    private $comment;
-    private $admin;
+private $post;
+private $comment;
+private $admin;
 
 
-    public function __construct ()
-    {
-        $this->post = new PostModel();
-        $this->comment = new CommentModel();
-        $this->admin = new AdminModel();
-    }
+public function __construct ()
+{
+$this->post = new PostModel();
+$this->comment = new CommentModel();
+$this->admin = new AdminModel();
+}
 
-    public function showPosts()
-    {
-        $posts = $this-> post -> getPosts();
+public function showPosts()
+{
+$posts = $this-> post -> getPosts();
 
-        require('view/frontend/homeView.php');
+require('view/frontend/homeView.php');
 
-    }
+}
 
-    public function showSinglePost($postId)
-    {
-        $post = $this-> post -> getPost($postId);
-        $comments = $this->comment->getComments($postId);
+public function showSinglePost($postId)
+{
+$post = $this-> post -> getPost($postId);
+$comments = $this->comment->getComments($postId);
 
-        require 'view/frontend/postView.php';
+require 'view/frontend/postView.php';
 
-    }
+}
 
-    public function createComment($postId,$author,$comments)
-    {
-        $comment = $this->comment->addComment($postId,$author,$comments);
+public function createComment($postId,$author,$comments)
+{
+$comment = $this->comment->addComment($postId,$author,$comments);
 
-        if ($comment){
-            header('Location: index.php?action=post&id='.$postId);
-        }else{
-            throw new Exception('Impossible d\'ajouter le commentaire !');
-        }
+if ($comment){
+header('Location: index.php?action=post&id='.$postId);
+}else{
+throw new Exception('Impossible d\'ajouter le commentaire !');
+}
 
-    }
+}
 
-    public function viewSingleComment($id)
-    {
-        $comments = $this->comment->getComment($id);
+public function viewSingleComment($id)
+{
+$comments = $this->comment->getComment($id);
 
-        include 'view/commentView.php';
+include 'view/commentView.php';
 
-    }
+}
 
-    public function signalComment($id)
-    {
-        $signal = $this->comment->reportComment($id);
+public function signalComment($id)
+{
+$signal = $this->comment->reportComment($id);
 
-        if($signal>0){
-            echo 'votre commentaire est signalé';
-        }else{
-            echo 'pas de signalement effectué';
-        }
+if($signal>0){
+echo 'votre commentaire est signalé';
+}else{
+echo 'pas de signalement effectué';
+}
 
-        //include 'view/commentView.php';
+//include 'view/commentView.php';
 
-    }
+}
 
-    function connectAsAdmin($login,$password)
-    {
-        $adminInfo = $this->admin->checkLogin($login,$password);
+function connectAsAdmin($login,$password)
+{
+$adminInfo = $this->admin->checkLogin($login,$password);
 
-        if ($adminInfo) {
+if ($adminInfo) {
 
-            $_SESSION['admin'] = true;
-            $_SESSION['login'] = $adminInfo['login'];
-            echo 'Vous êtes à présent connectés';
-            header('Location: index.php?action=adminPost');
-        } else {
-            echo 'Identifiants incorrects';
-            include 'index.php';
-        }
-    }
+$_SESSION['admin'] = true;
+$_SESSION['login'] = $adminInfo['login'];
+echo 'Vous êtes à présent connecté(e)';
+header('Location: index.php?action=adminPost');
+} else {
+echo 'Identifiants incorrects';
+include 'index.php';
+}
+}
 }
