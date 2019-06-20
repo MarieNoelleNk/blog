@@ -1,3 +1,10 @@
+<?php
+
+require_once 'model/PostModel.php';
+require_once 'model/CommentModel.php';
+require_once 'model/AdminModel.php';
+
+
 class UserController
 {
 private $post;
