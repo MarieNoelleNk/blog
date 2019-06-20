@@ -39,6 +39,51 @@ class Router
                         throw new Exception('Identifiants non conformes');
                     }
 
+                }elseif ($_GET['action'] == 'editPost'){
+
+                    if(isset($_GET['id'])&& $_GET['id']>0){
+
+                        $this->adminCtrl->readPost($_GET['id']);
+                    }
+                    else{
+                        throw new Exception('Identifiant de chapitre non valide');
+                    }
+
+                }elseif($_GET['action'] == 'adminPost') {
+                    $this->adminCtrl->readAllPosts();
+
+                }elseif($_GET['action'] == 'addPost') {
+
+                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+                        $this->adminCtrl->createPost($_POST['title'],$_POST['content']);
+                    } else {
+                        throw new Exception('Remplissez tous les champs du chapitre:(');
+                    }
+
+                }elseif($_GET['action'] == 'modifyPost') {
+
+                    if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+                            $this->adminCtrl->updatePost($_POST['title'], $_POST['content'],$_GET['id']);
+                        }else{
+                            throw new Exception('Remplissez tous les champs de ce chapitre:(');
+                        }
+                    } else {
+                        throw new Exception('cette mise à jour ne peut aboutir :(');
+                    }
+
+                }elseif($_GET['action'] == 'deletePost') {
+
+                    if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                        $this->adminCtrl->deletePost($_GET['id']);
+                    } else {
+                        throw new Exception('identifiant non conforme pour la suppression :(');
+                    }
+
                 }elseif($_GET['action'] == 'makeComment') {
 
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -64,38 +109,6 @@ class Router
                         throw new Exception('Le signalement ne peut être effectué');
 
                     }
-                }elseif($_GET['action'] == 'adminPost') {
-                    $this->adminCtrl->readAllPosts();
-
-                }elseif($_GET['action'] == 'addPost') {
-
-                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
-
-                        $this->adminCtrl->createPost($_POST['title'],$_POST['content']);
-                    } else {
-                        throw new Exception('Remplissez tous les champs du chapitre:(');
-                    }
-
-                }elseif($_GET['action'] == 'modifyPost') {
-                    if (!empty($_GET['id']) && $_GET['id'] > 0) {
-                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                            $this->adminCtrl->updatePost($_GET['id'], $_POST['title'], $_POST['content']);
-                        }else{
-                            throw new Exception('Remplissez tous les champs de ce chapitre:(');
-                        }
-                    } else {
-                        throw new Exception('cette mise à jour ne peut aboutir :(');
-                    }
-
-                }elseif($_GET['action'] == 'deletePost') {
-
-                    if (!empty($_GET['id']) && $_GET['id'] > 0) {
-
-                        $this->adminCtrl->removeComment($_GET['id']);
-                    } else {
-                        throw new Exception('identifiant non conforme pour la suppression :(');
-                    }
-
                 }elseif($_GET['action'] == 'approveComment') {
 
                     if (!empty($_GET['id']) && $_GET['id'] > 0) {
@@ -117,6 +130,4 @@ class Router
 
         }
     }
-
-
 }
