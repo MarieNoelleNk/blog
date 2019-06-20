@@ -25,4 +25,53 @@ class CommentModel extends Model {
         return $new_comment;
     }
 
+    public function reportComment($id)
+    {
+        $database = $this-> dbConnect();
+
+        $request = $database->prepare('UPDATE comments SET report_comment = 1 WHERE id = ?');
+
+        $request->execute(array($id));
+
+        $signal = $request->rowCount();
+
+        return $signal;
+    }
+
+    public function getReportedComments()
+    {
+        $database = $this->dbConnect();
+
+        $comments = $database->query('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation FROM comments INNER JOIN posts ON posts.id = comments.post_id WHERE report_comment =1 ORDER BY date_creation DESC');
+
+        return $comments;
+
+    }
+
+    public function deleteComment($id){
+
+        $database = $this->dbconnect();
+
+        $comment = $database->prepare('DELETE FROM comments WHERE id = ?');
+
+        $comment->execute(array($id));
+
+        return $comment;
+
+    }
+
+    public function approveComment($id)
+    {
+        $database = $this->dbConnect();
+
+        $request = $database->prepare('UPDATE comments SET report_comment = 0 WHERE id = ?');
+
+        $request->execute(array($id));
+
+        $signal = $request->rowCount();
+
+        return $signal;
+    }
+
+
 }
