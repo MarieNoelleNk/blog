@@ -14,6 +14,7 @@ class AdminController
     {
         $this->post= new PostModel();
         $this->comments = new CommentModel();
+
     }
 
 
@@ -34,9 +35,8 @@ class AdminController
     public function readPost($postId)
     {
         $post = $this->post->getPost($postId);
-        $comments = $this->comments->getComments($postId);
 
-        include 'view/frontend/postView.php';
+        include 'view/backend/editPostView.php';
 
     }
 
@@ -48,11 +48,11 @@ class AdminController
 
     }
 
-    public function updatePost($postId,$title,$content)
+    public function updatePost($title,$content,$postId)
     {
-        $post = $this->post->modifyPost($postId,$title,$content);
+        $post = $this->post->modifyPost($title,$content,$postId);
 
-        if ($post){
+        if ($post == true){
             header('Location: index.php?action=adminPost');
         }else{
             throw new Exception('Impossible de modifier le chapitre !');
@@ -94,8 +94,8 @@ class AdminController
 
         $comment = $this->comments->deleteComment($id);
 
-        if ($comment >0){
-            header('Location: index.php?action=adminComment');
+        if ($comment){
+            echo 'ce commentaire est supprimé';
         }else{
             throw new Exception('Impossible de supprimer le commentaire !');
         }
@@ -114,6 +114,5 @@ class AdminController
         }
 
     }
-
 
 }
