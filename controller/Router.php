@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controller/HomeCtrl.php';
+require_once 'controller/UserController.php';
 require_once 'controller/PostCtrl.php';
 require_once 'view/View.php';
 
@@ -11,7 +11,7 @@ class Router
 
     public function __construct()
     {
-        $this->homeCtrl = new HomeCtrl();
+        $this->homeCtrl = new UserController();
         $this->postCtrl = new PostCtrl();
     }
 
