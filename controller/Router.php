@@ -22,6 +22,10 @@ class Router
 
                 switch ($_GET['action']){
 
+                    /**********************  ACTIONS FRONTEND   ***************************/
+
+                    //lire un chapitre et ses commentaires
+
                     case 'post':
 
                         if(isset($_GET['id'])&& $_GET['id']>0){
@@ -34,73 +38,7 @@ class Router
 
                         break;
 
-                    case 'login':
-
-                        if (isset($_POST['login']) && isset($_POST['password'])) {
-
-                            $this->userCtrl->connectAsAdmin($_POST['login'],$_POST['password']);
-
-                        } else {
-                            throw new Exception('Identifiants non conformes');
-                        }
-
-                        break;
-
-                    case 'editPost':
-
-                        if(isset($_GET['id'])&& $_GET['id']>0){
-
-                            $this->adminCtrl->readPost($_GET['id']);
-                        }
-                        else{
-                            throw new Exception('Identifiant de chapitre non valide');
-                        }
-
-                        break;
-
-                    case 'adminPost':
-
-                        $this->adminCtrl->readAllPosts();
-
-                        break;
-
-                    case 'addPost';
-
-                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
-
-                            $this->adminCtrl->createPost($_POST['title'],$_POST['content']);
-                        } else {
-                            throw new Exception('Remplissez tous les champs du chapitre:(');
-                        }
-
-                        break;
-
-                    case 'modifyPost':
-
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
-
-                            if (!empty($_POST['title']) && !empty($_POST['content'])) {
-
-                                $this->adminCtrl->updatePost($_POST['title'], $_POST['content'],$_GET['id']);
-                            }else{
-                                throw new Exception('Remplissez tous les champs de ce chapitre:(');
-                            }
-                        } else {
-                            throw new Exception('cette mise à jour ne peut aboutir :(');
-                        }
-
-                        break;
-
-                    case 'deletePost':
-
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
-
-                            $this->adminCtrl->deletePost($_GET['id']);
-                        } else {
-                            throw new Exception('identifiant non conforme pour la suppression :(');
-                        }
-
-                        break;
+                    //Ajouter un commentaire
 
                     case 'makeComment':
 
@@ -117,8 +55,9 @@ class Router
                             throw new Exception('Identifiant de com non valide');
 
                         }
-
                         break;
+
+                    //Signaler un commentaire
 
                     case 'signalComment':
 
@@ -138,11 +77,119 @@ class Router
 
                         break;
 
+                    //Se connecter en tant qu'administrateur
+
+                    case 'login':
+
+                        if (isset($_POST['login']) && isset($_POST['password'])) {
+
+                            $this->userCtrl->connectAsAdmin($_POST['login'],$_POST['password']);
+
+                        } else {
+                            throw new Exception('Identifiants non conformes');
+                        }
+
+                        break;
+
+                    /*********************************  ACTIONS BACKEND  *********************************/
+
+                    //afficher l'interface
+
+                    case 'adminPost':
+
+                        $this->adminCtrl->readAllPosts();
+
+                        break;
+
+                    // Afficher l'éditeur de texte
+
+                    case 'getPage':
+
+                        $this->adminCtrl->goToCreate();
+
+                        break;
+
+                    // Ajouter un nouveau chapitre
+
+                    case 'addPost';
+
+                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+                            $this->adminCtrl->createPost($_POST['title'],$_POST['content']);
+                        } else {
+                            throw new Exception('Remplissez tous les champs du chapitre:(');
+                        }
+
+                        break;
+
+                    // Afficher un chapitre en tant qu'administrateur
+
+                    case 'readPost';
+
+                        if(isset($_GET['id'])&& $_GET['id']>0){
+
+                            $this->adminCtrl->readPost($_GET['id']);
+                        }
+                        else{
+                            throw new Exception('Identifiant de chapitre non valide');
+                        }
+
+                        break;
+
+                    // Afficher l'éditeur de chapitre
+
+                    case 'editPost':
+
+                        if(isset($_GET['id'])&& $_GET['id']>0){
+
+                            $this->adminCtrl->goToPost($_GET['id']);
+                        }
+                        else{
+                            throw new Exception('Identifiant de chapitre non valide');
+                        }
+
+                        break;
+
+                    // Actualiser le chapitre
+
+                    case 'modifyPost':
+
+                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+                                $this->adminCtrl->updatePost($_POST['title'], $_POST['content'],$_GET['id']);
+                            }else{
+                                throw new Exception('Remplissez tous les champs de ce chapitre:(');
+                            }
+                        } else {
+                            throw new Exception('cette mise à jour ne peut aboutir :(');
+                        }
+
+                        break;
+
+                    // Effacer un chapitre
+
+                    case 'deletePost':
+
+                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                            $this->adminCtrl->deletePost($_GET['id']);
+                        } else {
+                            throw new Exception('identifiant non conforme pour la suppression :(');
+                        }
+
+                        break;
+
+                    // Afficher l'interface de modération de commentaires
+
                     case 'showComment':
 
                         $this->adminCtrl->showAllComments();
 
                         break;
+
+                    // Afficher un commentaire
 
                     case 'singleComment':
 
@@ -156,6 +203,8 @@ class Router
 
                         break;
 
+                    // Approuver le commentaire
+
                     case 'approveComment':
 
                         if (!empty($_GET['id']) && $_GET['id'] > 0) {
@@ -165,6 +214,26 @@ class Router
                         } else {
                             throw new Exception('identifiant non conforme pour la validation :(');
                         }
+                        break;
+
+                    // Supprimer le commentaire
+
+                    case 'deleteComment':
+
+                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                            $this->adminCtrl->removeComment($_GET['id']);
+                        } else {
+                            throw new Exception('identifiant non conforme pour la suppression :(');
+                        }
+
+                        break;
+
+                    // Se déconnecter
+
+                    case 'disconnect':
+
+                        $this->adminCtrl->logOut();
 
                         break;
 
@@ -182,6 +251,5 @@ class Router
 
         }
     }
-
 
 }
