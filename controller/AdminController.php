@@ -1,8 +1,8 @@
 <?php
 
-require_once 'model/PostModel.php';
-require_once 'model/CommentModel.php';
-require_once 'model/AdminModel.php';
+require_once 'model/PostManager.php';
+require_once 'model/CommentManager.php';
+require_once 'model/AdminManager.php';
 
 class AdminController
 {
@@ -12,18 +12,17 @@ class AdminController
 
     public function __construct()
     {
-        $this->post= new PostModel();
-        $this->comments = new CommentModel();
+        $this->post= new PostManager();
+        $this->comments = new CommentManager();
 
     }
-
 
     public function createPost($title,$content)
     {
         $post = $this->post->addPost($title,$content);
 
         if ($post){
-            header('Location: index.php?action=addPost');
+            header('Location: index.php?action=adminPost');
         }else{
             throw new Exception('Impossible d\'ajouter le chapitre !');
         }
@@ -32,11 +31,18 @@ class AdminController
     }
 
 
+    public function goToCreate(){
+
+        include 'view/backend/createPostView.php';
+
+    }
+
+
     public function readPost($postId)
     {
         $post = $this->post->getPost($postId);
 
-        include 'view/backend/editPostView.php';
+        include 'view/backend/adminPostView.php';
 
     }
 
@@ -48,12 +54,20 @@ class AdminController
 
     }
 
+    public function goToPost($postId)
+    {
+        $post = $this->post->getPost($postId);
+
+        include 'view/backend/editPostView.php';
+
+    }
+
     public function updatePost($title,$content,$postId)
     {
         $post = $this->post->modifyPost($title,$content,$postId);
 
         if ($post == true){
-            header('Location: index.php?action=adminPost');
+            header('Location: index.php?action=updatePost');
         }else{
             throw new Exception('Impossible de modifier le chapitre !');
         }
@@ -78,15 +92,15 @@ class AdminController
     {
         $comment = $this->comments->getComment($id);
 
-        include 'view/commentView.php';
+        include 'view/backend/singleCommentView.php';
 
     }
 
-    public function lookReportedComments()
+    public function showAllComments()
     {
-        $this->comments->getReportedComments();
+        $comments = $this->comments->getAllComments();
 
-        include 'view/backend/reportedCommentsView.php';
+        include 'view/backend/adminCommentsView.php';
 
     }
 
@@ -95,7 +109,7 @@ class AdminController
         $comment = $this->comments->deleteComment($id);
 
         if ($comment){
-            echo 'ce commentaire est supprimé';
+            header('location:index.php?action=showComment');
         }else{
             throw new Exception('Impossible de supprimer le commentaire !');
         }
@@ -108,11 +122,17 @@ class AdminController
         $comment = $this->comments->approveComment($id);
 
         if ($comment >0){
-            header('Location: index.php?action=adminComment');
+            header('Location: index.php?action=showComment');
         }else{
             throw new Exception('Impossible de valider le commentaire !');
         }
 
     }
 
+    public function logOut()
+    {
+        session_start();
+        session_destroy();
+        header('Location:index.php');
+    }
 }

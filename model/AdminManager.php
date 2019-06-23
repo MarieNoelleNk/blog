@@ -1,8 +1,8 @@
 <?php
 
-require_once ('Model.php');
+require_once('Manager.php');
 
-class AdminModel extends Model
+class AdminManager extends Manager
 {
     public function checkLogin($login,$password)
     {

@@ -1,8 +1,8 @@
 <?php
 
-require_once ('Model.php');
+require_once('Manager.php');
 
-class CommentModel extends Model {
+class CommentManager extends Manager {
 
     public function getComments ($postId) {
 

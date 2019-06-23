@@ -1,8 +1,8 @@
 <?php
 
-require_once ('Model.php');
+require_once('Manager.php');
 
-class PostModel extends Model {
+class PostManager extends Manager {
 
     public function getPosts () {
 
