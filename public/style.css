@@ -1,0 +1,69 @@
+body {
+background-image: url('glacier-bay-80643_1920.jpg');
+}
+
+header{
+    background: midnightblue;
+}
+
+
+article{
+    border: black 2px solid;
+    border-radius: 30px;
+    margin: 50px auto;
+    background-color: aliceblue;
+    width: 70%;
+}
+
+.home_article{
+    text-align: center;
+    padding: 10px;
+}
+
+.home_comment{
+    border: black 2px solid;
+    border-radius: 30px;
+    margin: 50px auto;
+    background-color: aliceblue;
+    padding:2%;
+    width: 60%;
+
+}
+/*formulaire de connexion*/
+
+#connection{
+    display: flex;
+    margin: 0;
+    background: midnightblue;
+}
+
+#connect_label{
+    padding: 2px;
+    color: white;
+}
+
+
+
+#comments_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    background:darkslateblue;
+    padding: 10px;
+    color: white;
+}
+
+/**/
+nav{
+
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    background: lightgrey;
+}
+
+li{
+    list-style: none;
+}
