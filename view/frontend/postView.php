@@ -7,14 +7,14 @@
     <div class="home_article">
         <p><a href="index.php">Retour à l'accueil</a></p>
 
-        <h1>Chapitre <?= $post['id']; ?> : <?= htmlspecialchars($post['title']); ?></h1>
+        <h1>Chapitre <?= $post['id']; ?> : <?= $post['title']; ?></h1>
 
         <p>
             Publié le <?= $post['date_creation']; ?>
         </p>
 
         <p>
-            <?= nl2br(htmlspecialchars($post['content'])); ?>
+            <?= $post['content']; ?>
         </p>
     </div>
 </article>
@@ -33,7 +33,7 @@
 
     <p> <?= nl2br(htmlspecialchars($comment['comments'])); ?></p>
 
-    <button><a href="../../index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $comment['post_id']; ?>"> signaler</a></button>
+    <button><a href="index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $comment['post_id']; ?>"> signaler</a></button>
 
 
 <?php endforeach; ?>
