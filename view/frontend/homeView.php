@@ -12,18 +12,19 @@
 
         <div class="home_article">
 
-            <h2>Chapitre <?= $post['id']; ?> : <?= htmlspecialchars($post['title']); ?></h2>
+            <h2>Chapitre <?= $post['id']; ?> : <?= $post['title']; ?></h2>
 
             <p>
                 Publié le <?= $post['date_creation']; ?>
             </p>
 
             <p>
-                <?= mb_substr(nl2br(htmlspecialchars($post['content'])),0,200); ?>...
+                <?= mb_substr($post['content'],0,200); ?>...
             </p>
             <p><a href="index.php?action=post&amp;id=<?= $post['id']; ?>">Voir en intégralité</a></p>
 
         </div>
+
     </article>
 
 <?php endforeach; ?>
