@@ -5,6 +5,7 @@
 <article>
 
     <div class="home_article">
+
         <p><a href="index.php">Retour à l'accueil</a></p>
 
         <h1>Chapitre <?= $post['id']; ?> : <?= $post['title']; ?></h1>
@@ -16,7 +17,9 @@
         <p>
             <?= $post['content']; ?>
         </p>
+
     </div>
+
 </article>
 
 <h2> Commentaires </h2>
