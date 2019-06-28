@@ -2,11 +2,10 @@
 
 <?php  ob_start();?>
 
-<article>
+<article class="chapter">
 
-    <div class="home_article">
 
-        <p><a href="index.php">Retour à l'accueil</a></p>
+    <div class="container home_article">
 
         <h1>Chapitre <?= $post['id']; ?> : <?= $post['title']; ?></h1>
 
@@ -22,21 +21,30 @@
 
 </article>
 
-<h2> Commentaires </h2>
+<h2 class="text-center"> Commentaires </h2>
 
 <?php forEach ($comments as $comment) :?>
 
-    <div id="comments_header">
+    <div class="container" id="comment_post">
 
-        <p><?= htmlspecialchars($comment['author']); ?></p>
+        <div class="jumbotron">
 
-        <p>Posté le <?= $comment['date_creation']?></p>
+            <div id="comments_header" >
+
+                <p><?= htmlspecialchars($comment['author']); ?></p>
+
+                <p>Posté le <?= $comment['date_creation']?></p>
+
+            </div>
+
+            <p> <?= nl2br(htmlspecialchars($comment['comments'])); ?></p>
+
+            <a href="index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $comment['post_id']; ?>" class="text-center"> <button class="btn btn-danger" >signaler</button></a>
+
+        </div>
 
     </div>
 
-    <p> <?= nl2br(htmlspecialchars($comment['comments'])); ?></p>
-
-    <button><a href="index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $comment['post_id']; ?>"> signaler</a></button>
 
 
 <?php endforeach; ?>
@@ -56,7 +64,7 @@
         <input type="hidden" name="id" value="<?= $post['id'] ?>" />
     </p>
 
-    <p><input type="submit" value="Envoyer"></p>
+    <p><input type="submit" class="btn btn-success" value="Envoyer"></p>
 
 </form>
 
@@ -65,7 +73,6 @@
 <?php $content= ob_get_clean();?>
 
 <?php require('template.php') ?>
-
 
 
 
