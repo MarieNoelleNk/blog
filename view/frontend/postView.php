@@ -39,13 +39,14 @@
 
             <p> <?= nl2br(htmlspecialchars($comment['comments'])); ?></p>
 
-            <?php if($comment['report_comment']>0) {
-
-                echo 'Commentaire signalé!';
-            }
-                ?>
-
             <a href="index.php?action=signalComment&amp;id=<?= $comment['id']; ?>&amp;chapterId=<?= $comment['post_id']; ?>" class="text-center"> <button class="btn btn-danger" >signaler</button></a>
+
+            <?php if($comment['report_comment']>0) { ?>
+
+               <span id="reported">Commentaire signalé!</span>
+               <?php
+            }
+            ?>
 
         </div>
 
