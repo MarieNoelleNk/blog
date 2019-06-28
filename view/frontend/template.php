@@ -11,7 +11,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
         <link href="public/assets/owl.carousel.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="public/style1.css">
+        <link rel="stylesheet" href="public/style.css">
     </head>
 
     <body>
