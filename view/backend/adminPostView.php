@@ -2,27 +2,27 @@
 
 <?php  ob_start();?>
 
-<article>
+<div class="jumbotron">
 
-    <div class="home_article">
+    <article>
 
-        <p><a href="index.php?action=adminPost">Retour au tableau d'administration</a></p>
+        <div class="home_article">
 
+            <h1>Chapitre <?= $post['chapter']; ?> : <?= $post['title']; ?></h1>
 
-        <h1>Chapitre <?= $post['id']; ?> : <?= htmlspecialchars($post['title']); ?></h1>
+            <p>
+                Publié le <?= $post['date_creation']; ?>
+            </p>
 
-        <p>
-            Publié le <?= $post['date_creation']; ?>
-        </p>
+            <p>
+                <?= $post['content']; ?>
+            </p>
 
-        <p>
-            <?= $post['content']; ?>
-        </p>
+        </div>
 
-    </div>
+    </article>
 
-</article>
-
+</div>
 
 <?php $content= ob_get_clean();?>
 
