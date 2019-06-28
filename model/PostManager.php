@@ -8,7 +8,7 @@ class PostManager extends Manager {
 
         $database = $this->dbconnect();
 
-        $request = $database->query('SELECT id, title, content, DATE_FORMAT(publication, "%d/%m/%Y à %Hh%imin%ss") AS date_creation FROM posts ORDER BY publication DESC ');
+        $request = $database->query('SELECT id, chapter, title, content, DATE_FORMAT(publication, "%d/%m/%Y à %Hh%imin%ss") AS date_creation FROM posts ORDER BY publication DESC ');
 
         return $request;
     }
@@ -17,7 +17,7 @@ class PostManager extends Manager {
 
         $database = $this->dbconnect();
 
-        $request = $database->prepare('SELECT id, title, content, date_format(publication, "%d/%m/%Y à %Hh%imin%ss") AS date_creation  FROM posts WHERE id=?');
+        $request = $database->prepare('SELECT id, chapter, title, content, date_format(publication, "%d/%m/%Y à %Hh%imin%ss") AS date_creation  FROM posts WHERE id=?');
 
         $request->execute(array($postId));
 
@@ -32,9 +32,10 @@ class PostManager extends Manager {
 
         $request = $database->prepare('INSERT INTO posts (chapter, title, content, publication) VALUES (?,?,?,NOW())');
 
-        $request->execute(array($chapter, $title, $content));
+        $new_chapter =$request->execute(array($chapter,$title, $content));
 
-        return true;
+        return $new_chapter;
+
     }
 
     public function modifyPost ( $title, $content, $postId) {
@@ -72,4 +73,3 @@ class PostManager extends Manager {
 
 
 }
-
