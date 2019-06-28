@@ -77,6 +77,11 @@ class Router
 
                         break;
 
+                    case 'connection':
+
+                        $this->userCtrl->goToConnect();
+                        break;
+
                     //Se connecter en tant qu'administrateur
 
                     case 'login':
