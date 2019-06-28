@@ -17,9 +17,9 @@ class AdminController
 
     }
 
-    public function createPost($title,$content)
+    public function createPost($chapter,$title,$content)
     {
-        $post = $this->post->addPost($title,$content);
+        $post = $this->post->addPost($chapter,$title,$content);
 
         if ($post){
             header('Location: index.php?action=adminPost');

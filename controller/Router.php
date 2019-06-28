@@ -118,14 +118,14 @@ class Router
 
                     case 'addPost';
 
-                        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                        if (!empty($_POST['chapter']) && !empty($_POST['title']) && !empty($_POST['content'])) {
 
-                            $this->adminCtrl->createPost($_POST['title'],$_POST['content']);
+                            $this->adminCtrl->createPost($_POST['chapter'],$_POST['title'],$_POST['content']);
                         } else {
                             throw new Exception('Remplissez tous les champs du chapitre:(');
                         }
 
-                        break;
+                    break;
 
                     // Afficher un chapitre en tant qu'administrateur
 

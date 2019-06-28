@@ -26,13 +26,13 @@ class PostManager extends Manager {
         return $post;
     }
 
-    public function addPost ($title, $content) {
+    public function addPost ($chapter,$title, $content) {
 
         $database = $this->dbconnect();
 
-        $request = $database->prepare('INSERT INTO posts (title, content, publication) VALUES (?,?,NOW())');
+        $request = $database->prepare('INSERT INTO posts (chapter, title, content, publication) VALUES (?,?,?,NOW())');
 
-        $request->execute(array($title, $content));
+        $request->execute(array($chapter, $title, $content));
 
         return true;
     }
