@@ -75,8 +75,8 @@ class UserController
             echo 'Vous êtes à présent connecté(e)';
             header('Location: index.php?action=adminPost');
         } else {
-            echo 'Identifiants incorrects';
-            header('Location:index.php');
+            header('Location:index.php?action=connection');
+            echo 'Identifiants incorrects!';
         }
     }
 }
