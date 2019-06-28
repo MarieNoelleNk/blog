@@ -20,6 +20,7 @@ class PostManager extends Manager {
         $request = $database->prepare('SELECT id, title, content, date_format(publication, "%d/%m/%Y à %Hh%imin%ss") AS date_creation  FROM posts WHERE id=?');
 
         $request->execute(array($postId));
+
         $post = $request->fetch();
 
         return $post;
@@ -29,33 +30,26 @@ class PostManager extends Manager {
 
         $database = $this->dbconnect();
 
-        $request = $database->prepare('INSERT INTO posts (title, content, publication) VALUES (:title,:content,NOW())');
-
-        $request->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
-        $request->bindValue(':content', $_POST['content'], PDO::PARAM_STR);
+        $request = $database->prepare('INSERT INTO posts (title, content, publication) VALUES (?,?,NOW())');
 
         $request->execute(array($title, $content));
 
-        $post = $request->fetch();
-
-        return $post;
+        return true;
     }
 
-    public function modifyPost ($postId, $title, $content) {
+    public function modifyPost ( $title, $content, $postId) {
 
         $database = $this->dbconnect();
 
         $request = $database->prepare('UPDATE posts SET title=:title, content=:content WHERE id=:id');
 
-        $request->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
-        $request->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
-        $request->bindValue(':content', $_POST['content'], PDO::PARAM_STR);
+        $request->execute(array(
+            ':title' => $title,
+            ':content' => $content,
+            ':id' => $postId,
+        ));
 
-        $request->execute(array($postId,$title,$content));
-
-        $post = $request->fetch();
-
-        return $post;
+        return true;
     }
 
     public function removePost ($postId) {
@@ -74,6 +68,8 @@ class PostManager extends Manager {
 
         return $delete;
     }
+
+
 
 }
 

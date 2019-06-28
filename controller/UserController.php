@@ -4,7 +4,6 @@ require_once 'model/PostManager.php';
 require_once 'model/CommentManager.php';
 require_once 'model/AdminManager.php';
 
-
 class UserController
 {
     private $post;
@@ -59,6 +58,10 @@ class UserController
         }else{
             echo 'pas de signalement effectué';
         }
+    }
+
+    public function goToConnect(){
+        require'view/frontend/loginView.php';
     }
 
     function connectAsAdmin($login,$password)
