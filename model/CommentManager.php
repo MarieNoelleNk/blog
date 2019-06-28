@@ -8,7 +8,7 @@ class CommentManager extends Manager {
 
         $database = $this->dbconnect();
 
-        $comments= $database->prepare('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation FROM comments WHERE post_id =? ORDER BY publication DESC');
+        $comments= $database->prepare('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation,report_comment FROM comments WHERE post_id =? ORDER BY publication DESC');
 
         $comments->execute(array($postId));
 
