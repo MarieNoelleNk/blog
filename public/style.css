@@ -1,69 +1,124 @@
-body {
-background-image: url('glacier-bay-80643_1920.jpg');
-}
+/*--------homepage----------*/
 
-header{
-    background: midnightblue;
-}
-
-
-article{
-    border: black 2px solid;
-    border-radius: 30px;
-    margin: 50px auto;
-    background-color: aliceblue;
-    width: 70%;
-}
-
-.home_article{
-    text-align: center;
-    padding: 10px;
-}
-
-.home_comment{
-    border: black 2px solid;
-    border-radius: 30px;
-    margin: 50px auto;
-    background-color: aliceblue;
-    padding:2%;
-    width: 60%;
-
-}
-/*formulaire de connexion*/
-
-#connection{
-    display: flex;
-    margin: 0;
-    background: midnightblue;
-}
-
-#connect_label{
-    padding: 2px;
+#banner{
+    background: cornflowerblue;
     color: white;
+    padding: 5%;
+}
+
+#intro{
+    text-align: center;
+    padding: 40px;
+    /*background:url('glacier-bay-80643_1920.jpg') no-repeat;
+   background-size: cover;*/
+}
+
+.jumbotron{
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.85);
+    max-width: 900px;
+    margin: 0 auto;
+    background-color:antiquewhite;
+}
+
+.chapter{
+    background: cornflowerblue;
+    color: white;
+    padding: 5%;
+}
+
+
+.card-title{
+    background-color: cornflowerblue;
+}
+
+.card{
+    background:#fff;
+    padding:5px;
+}
+
+#comment_post{
+    padding: 2%;
 }
 
 
 
-#comments_header{
-    display: flex;
-    justify-content: space-between;
+/*------------footer---------------*/
+
+.social-icon {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icon li{
+    display: inline-block;
+    text-align: center;
+}
+
+.social-icon a {
+    display: block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.social-icon a {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+}
+
+.social-icon a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
 }
 
 footer{
-    background:darkslateblue;
-    padding: 10px;
-    color: white;
+    background-color: #424558;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    text-align: center;
+    color: #CCC;
 }
 
-/**/
-nav{
-
-    display: flex;
-    flex-direction: row;
+/*--- login --*/
+#login{
     margin: 0;
-    background: lightgrey;
+    padding: 0;
+    background-color: cornflowerblue;
+    height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
 }
 
-li{
-    list-style: none;
+
+/*--- adminpage--*/
+
+#admin_background{
+    background-color: cornflowerblue;
+    height: 100vh;
+    padding: 20px;
 }
+#admin_background .jumbotron{
+    background: whitesmoke;
+    max-width: fit-content;
+}
+
+
+
