@@ -15,6 +15,15 @@ class CommentManager extends Manager {
         return $comments;
     }
 
+    public function getAllComments () {
+
+        $database = $this->dbconnect();
+
+        $comments= $database->query('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation,report_comment FROM comments ORDER BY report_comment DESC');
+
+        return $comments;
+    }
+
     public function addComment($postId, $author, $comment){
 
         $database = $this->dbconnect();
