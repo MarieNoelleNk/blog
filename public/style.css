@@ -177,3 +177,15 @@ footer{
         padding:2px;
     }
 }
+
+@media (max-width: 400px) {
+    h1{
+        font-size: 35px;
+    }
+    footer h4{
+        font-size: 16px;
+    }
+    #login .container #login-row #login-column #login-box{
+        margin-top: 20px;
+    }
+}
