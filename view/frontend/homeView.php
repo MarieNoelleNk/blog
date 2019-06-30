@@ -53,7 +53,7 @@
 
                         <img src="public/alaska-810433_1920.jpg" class="card-img-top" alt="">
 
-                        <h4 class="card-title">Chapitre <?= $post['id']; ?> : <?= htmlspecialchars($post['title']); ?></h4>
+                        <h4 class="card-title">Chapitre <?= $post['chapter']; ?> : <?= htmlspecialchars($post['title']); ?></h4>
 
                         <p class="text-center">Publié le <?= $post['date_creation']; ?></p>
 
