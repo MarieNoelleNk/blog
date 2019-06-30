@@ -4,7 +4,7 @@
 <?php  ob_start();?>
 
 <div class="responsive-table-line jumbotron">
-    <h1 class="text-center"> Gestion des posts </h1>
+    <h1 class="text-center"> Gestion des billets </h1>
 
     <table class="table table-condensed table-bordered table-body-center">
 
@@ -43,12 +43,13 @@
         </tbody>
 
     </table>
-</div>
-<div class="admin_tab">
+    <div class="admin_tab">
 
-    <a href="index.php?action=getPage"><button>Ajouter un chapitre</button></a>
+        <a href="index.php?action=getPage" class="btn btn-info" role="button">Ajouter un chapitre</a>
 
+    </div>
 </div>
+
 
 
 <?php $content= ob_get_clean();?>

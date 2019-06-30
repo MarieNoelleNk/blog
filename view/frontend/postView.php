@@ -7,7 +7,7 @@
 
     <div class="container home_article">
 
-        <h1>Chapitre <?= $post['id']; ?> : <?= $post['title']; ?></h1>
+        <h1 class="text-center">Chapitre <?= $post['chapter']; ?> : <?= $post['title']; ?></h1>
 
         <p>
             Publié le <?= $post['date_creation']; ?>

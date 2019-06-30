@@ -12,7 +12,7 @@
         <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
         <link href="public/assets/owl.carousel.min.css" rel="stylesheet">
         <link rel="stylesheet" href="public/style.css">
-    </head>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">    </head>
 
     <body>
 
@@ -40,22 +40,7 @@
 
     <footer class="container-fluid bg-dark text-white-20">
 
-        <div class="row text-center padding">
-
-            <div class="col-md-6">
-                <h2>Me suivre</h2>
-            </div>
-            <div class="col-md-6 social padding">
-                <ul class="social-icon animate">
-                    <li><a href="#" title="facebook" target="_blank"><i class="fab fa-facebook"></i></a></li> <!-- change the link to social page and edit title-->
-                    <li><a href="#" title="twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" title="google plus" target="_blank"><i class="fab fa-google-plus"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-
-    </footer>
+        <p class="text-center">Roman écrit et publié en 2019</p>
 
     </body>
 
