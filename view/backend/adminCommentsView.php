@@ -2,14 +2,14 @@
 
 <?php  ob_start();?>
 
-<div class="jumbotron">
-    <h1 class="text-center"> Gestion des Commentaires signalés </h1>
 
-    <table class="table table-striped table-bordered">
+<div class="responsive-table-line jumbotron">
+    <h1 class="text-center"> Gestion des commentaires </h1>
+
+    <table class="table table-condensed table-bordered table-body-center">
 
         <thead>
         <tr>
-            <th>Ordre</th>
             <th>Chapitre</th>
             <th>Date</th>
             <th>Contenu</th>
@@ -24,14 +24,12 @@
         <?php foreach ($comments as $comment): ?>
 
             <tr>
-
-                <td><?= $comment['id']; ?> </td>
-                <td><?= htmlspecialchars($comment['post_id']); ?></td>
-                <td><?= $comment['date_creation']; ?></td>
-                <td>
+                <td data-title="Chapitre"><?= htmlspecialchars($comment['post_id']); ?></td>
+                <td data-title="Date"><?= $comment['date_creation']; ?></td>
+                <td data-title="Contenu">
                     <?= mb_substr($comment['comments'],0,20); ?>...
                 </td>
-                <td>
+                <td data-title="Signalement">
                     <?php
                     if($comment['report_comment'] > 0) {
                         echo 'oui';
@@ -39,9 +37,9 @@
                         echo 'non';
                     }?>
                 </td>
-                <td><a href="index.php?action=approveComment&amp;id=<?= $comment['id']; ?>">Approuver</a></td>
-                <td><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>">Supprimer</a></td>
-                <td><a href="index.php?action=singleComment&amp;id=<?= $comment['id']; ?>">Lire</a></td>
+                <td data-title="Approuver"><a href="index.php?action=approveComment&amp;id=<?= $comment['id']; ?>">Approuver</a></td>
+                <td data-title="Supprimer"><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>">Supprimer</a></td>
+                <td data-title="Afficher"><a href="index.php?action=singleComment&amp;id=<?= $comment['id']; ?>">Lire</a></td>
             </tr>
 
         <?php endforeach; ?>

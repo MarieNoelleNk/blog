@@ -124,6 +124,9 @@ footer{
     max-width: fit-content;
 }
 
+#moderation_buttons{
+    padding: 1%;
+}
 /*--- media queries--*/
 
 @media (max-width: 750px) {

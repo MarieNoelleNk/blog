@@ -44,24 +44,7 @@
     <section id="admin_background">
         <?= $content ?>
     </section>
-    <footer class="container-fluid bg-dark">
 
-        <div class="row text-center padding">
-
-            <div class="col-md-6">
-                <h2>Me suivre</h2>
-            </div>
-            <div class="col-md-6 social padding">
-                <ul class="social-icon animate">
-                    <li><a href="#" title="facebook" target="_blank"><i class="fab fa-facebook"></i></a></li> <!-- change the link to social page and edit title-->
-                    <li><a href="#" title="twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" title="google plus" target="_blank"><i class="fab fa-google-plus"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-
-    </footer>
 
     </body>
 
