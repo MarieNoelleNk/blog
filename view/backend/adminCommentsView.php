@@ -4,7 +4,8 @@
 
 
 <div class="responsive-table-line jumbotron">
-    <h1 class="text-center"> Gestion des commentaires </h1>
+
+    <h2 class="text-center"> Gestion des commentaires </h2>
 
     <table class="table table-condensed table-bordered table-body-center">
 
@@ -31,10 +32,11 @@
                 </td>
                 <td data-title="Signalement">
                     <?php
-                    if($comment['report_comment'] > 0) {
-                        echo 'oui';
-                    }else{
-                        echo 'non';
+                    if($comment['report_comment'] > 0) {?>
+                       <p class="report">oui</p>
+                    <?php }else{ ?>
+                       <p>non</p>
+                        <?php
                     }?>
                 </td>
                 <td data-title="Approuver"><a href="index.php?action=approveComment&amp;id=<?= $comment['id']; ?>">Approuver</a></td>

@@ -29,10 +29,16 @@ h1{
 }
 
 h2{
-    font-family: "Book Antiqua",Arial,serif;
-    font-size: 45px;
-    text-shadow: #424558 1px 2px 2px;
+    font-family: "Cooper Black",Arial,serif;
+    font-size: 35px;
+    text-shadow: lightgrey 1px 2px 2px;
     margin-bottom: 40px;
+}
+
+h4{
+    font-family: 'Pacifico', cursive;
+    text-shadow: #424558 1px 2px 2px;
+    color: white;
 }
 
 .chapter{
@@ -100,13 +106,21 @@ footer{
 #admin_background{
     background-color: cornflowerblue;
     height: 100vh;
+}
+
+#admin_section{
     padding: 20px;
 }
+
 #admin_background .jumbotron{
     background: whitesmoke;
     max-width: fit-content;
-}
 
+}
+.report{
+    background-color: brown;
+    color: white;
+}
 #moderation_buttons{
     padding: 1%;
 }
@@ -115,6 +129,14 @@ footer{
 @media (max-width: 750px) {
 
     /*---Tableau responsive --*/
+
+    .responsive-table-line thead{
+        color: #401500;
+        background-color: #FFDDCC;
+        border-color: #792700;
+
+    }
+
 
     .responsive-table-line table,
     .responsive-table-line thead,

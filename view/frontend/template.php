@@ -40,7 +40,7 @@
 
     <footer class="container-fluid bg-dark text-white-20">
 
-        <p class="text-center">Roman écrit et publié en 2019</p>
+        <h4 class="text-center">Roman écrit et publié en 2019</h4>
 
     </body>
 

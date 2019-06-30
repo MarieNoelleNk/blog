@@ -16,7 +16,7 @@
         <link href="public/assets/owl.carousel.min.css" rel="stylesheet">
         <link rel="stylesheet" href="public/style.css">
 
-    <body>
+    <body id="admin_background">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
@@ -41,7 +41,7 @@
         </div>
     </nav>
 
-    <section id="admin_background">
+    <section id="admin_section" >
         <?= $content ?>
     </section>
 

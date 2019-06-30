@@ -3,7 +3,7 @@
 <?php  ob_start();?>
 
 <section id="login">
-    <h3 class="text-center text-white pt-5">formulaire de connexion</h3>
+    <h2 class="text-center text-white pt-5">Formulaire de connexion</h2>
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">

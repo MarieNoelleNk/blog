@@ -4,7 +4,8 @@
 <?php  ob_start();?>
 
 <div class="responsive-table-line jumbotron">
-    <h1 class="text-center"> Gestion des billets </h1>
+
+    <h2 class="text-center"> Gestion des billets </h2>
 
     <table class="table table-condensed table-bordered table-body-center">
 
