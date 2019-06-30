@@ -4,6 +4,20 @@ require_once('Manager.php');
 
 class CommentManager extends Manager {
 
+    public function getComment($id){
+
+        $database = $this->dbconnect();
+
+        $comment = $database->prepare('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation FROM comments WHERE id =? ');
+
+        $comment->execute(array($id));
+
+        $singleComment = $comment->fetch();
+
+        return $singleComment;
+
+    }
+
     public function getComments ($postId) {
 
         $database = $this->dbconnect();

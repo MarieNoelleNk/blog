@@ -38,7 +38,7 @@
 
     <?= $content ?>
 
-    <footer class="container-fluid bg-dark">
+    <footer class="container-fluid bg-dark text-white-20">
 
         <div class="row text-center padding">
 
