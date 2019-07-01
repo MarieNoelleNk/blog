@@ -10,8 +10,8 @@
             <div class="col-md-6">
                 <h1>Billet simple pour l'Alaska</h1>
 
-                <p>Jenna et sa famille rêvent de faire du ski en Alaska et prennent 15 jours pour decouvrir la région.Tout se deroule bien jusqu'à cette heure fatidique de quitter la montagne. Jenna se souvient
-                    de cette phrase sortie de la bouche de sa lugubre tante maddie:" je m'attendais à peu de choses mais j'ai enchainé les catastrophes à cause d'un billet simple pour l'Alaska.."</p>
+                <p>Jenna et ses amis rêvent de faire du ski en Alaska et prennent 15 jours pour decouvrir la région.Tout se deroule bien jusqu'à cette heure fatidique de quitter le Denali, plus haute montagne d'Alaska. Jenna se souvient
+                    de cette phrase prononcée par sa lugubre tante maddie:"Bien des malheurs arriveront à cause d'un billet simple pour l'Alaska.."</p>
             </div>
             <div class="col-md-6 text-center">
                 <img src="public/book-150199_1280.png" class="img-fluid" alt="open book">
@@ -29,7 +29,7 @@
         <h2>Bienvenue sur mon blog</h2>
 
         <p>Je suis Jean Forteroche, acteur et écrivain. <span>Billet simple pour l'Alaska</span> est mon cinquième roman mais le premier que je publierai entièrement en ligne.</p>
-        <p>Une section comentaire est à votre disposition, n'hésitez pas à partager avec moi vos impressions et vos avis sur chaque chapitre</p>
+        <p>Une section commentaire est à votre disposition, n'hésitez pas à partager avec moi vos impressions et vos avis sur chaque chapitre.</p>
         <p>Bonne lecture!</p>
 
     </div>
