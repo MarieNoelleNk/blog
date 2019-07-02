@@ -20,6 +20,9 @@
 
         </div>
 
+        <td data-title="edition"><a href="index.php?action=editPost&amp;id=<?= $post['id']; ?>">Editer</a></td>
+        <td data-title="suppression"><a href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Supprimer</a></td>
+
     </article>
 
 </div>
