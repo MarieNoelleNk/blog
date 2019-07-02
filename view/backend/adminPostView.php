@@ -19,9 +19,8 @@
             </p>
 
         </div>
-
-        <td data-title="edition"><a href="index.php?action=editPost&amp;id=<?= $post['id']; ?>">Editer</a></td>
-        <td data-title="suppression"><a href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Supprimer</a></td>
+        <a href="index.php?action=editPost&amp;id=<?= $post['id']; ?>"><button type="button" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-ok">Editer</span></button></a>
+        <a href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>"><span class="glyphicon glyphicon-remove"><button type="button" class="btn btn-danger btn-md">Supprimer</button></span></a>
 
     </article>
 

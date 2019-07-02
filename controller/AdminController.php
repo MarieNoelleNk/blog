@@ -67,7 +67,7 @@ class AdminController
         $post = $this->post->modifyPost($title,$content,$postId);
 
         if ($post == true){
-            header('Location: index.php?action=updatePost');
+            header('Location: index.php?action=readPost&id='.$postId);
         }else{
             throw new Exception('Impossible de modifier le chapitre !');
         }
