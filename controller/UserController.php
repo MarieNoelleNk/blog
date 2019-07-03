@@ -78,5 +78,6 @@ class UserController
             header('Location:index.php?action=connection');
             echo 'Identifiants incorrects!';
         }
+
     }
 }
