@@ -136,6 +136,10 @@ footer{
 
     /*---Tableau responsive --*/
 
+    .table{
+        margin-bottom: 0;
+    }
+
     .responsive-table-line thead{
         color: #401500;
         background-color: #FFDDCC;
@@ -171,8 +175,8 @@ footer{
     .responsive-table-line td::before {
         content: attr(data-title);
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         width: 45%;
         height:100%;
         white-space: nowrap;
