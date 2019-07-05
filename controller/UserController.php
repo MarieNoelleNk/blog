@@ -72,7 +72,6 @@ class UserController
 
             $_SESSION['admin'] = true;
             $_SESSION['login'] = $adminInfo['login'];
-            echo 'Vous êtes à présent connecté(e)';
             header('Location: index.php?action=adminPost');
         } else {
             header('Location:index.php?action=connection');
