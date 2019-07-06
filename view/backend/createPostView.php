@@ -1,8 +1,8 @@
-<?php $title = "Mon Blog"; ?>
+<?php $title = "Ajouter un chapitre"; ?>
 
 <?php  ob_start();?>
 
-<h2 class="text-center">Redaction d'un nouveau chapitre</h2>
+<h2 class="text-center text-white ">Redaction d'un nouveau chapitre</h2>
 
 <form action="index.php?action=addPost" method="post">
 

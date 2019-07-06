@@ -1,4 +1,4 @@
-<?php $title = "Mon Blog"; ?>
+<?php $title = "Afficher un chapitre"; ?>
 
 <?php  ob_start();?>
 
@@ -8,7 +8,7 @@
 
         <div class="home_article">
 
-            <h1>Chapitre <?= $post['chapter']; ?> : <?= $post['title']; ?></h1>
+            <h2 class="text-center">Chapitre <?= $post['chapter']; ?> : <?= $post['title']; ?></h2>
 
             <p>
                 Publié le <?= $post['date_creation']; ?>

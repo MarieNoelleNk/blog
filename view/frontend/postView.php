@@ -1,4 +1,4 @@
-<?php $title = "Mon Blog"; ?>
+<?php $title = "Lire un chapitre"; ?>
 
 <?php  ob_start();?>
 
@@ -21,7 +21,7 @@
 
 </article>
 
-<h2 class="text-center"> Commentaires </h2>
+<h2 class="text-center pt-5"> Commentaires </h2>
 
 <?php forEach ($comments as $comment) :?>
 
