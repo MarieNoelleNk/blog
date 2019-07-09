@@ -62,12 +62,12 @@
 
     <p>
         <label for="pseudo"> Nom </label><br>
-        <input type="text" name="author" id="pseudo">
+        <input type="text" name="author" id="pseudo" required>
     </p>
 
     <p>
         <label for="comments">Message</label><br>
-        <textarea name="comments"  cols="30" rows="10"></textarea>
+        <textarea name="comments"  cols="30" rows="10" required></textarea>
         <input type="hidden" name="id" value="<?= $post['id'] ?>" />
     </p>
 
