@@ -28,13 +28,4 @@ class AdminManager extends Manager
         }
     }
 
-
-    public function isAdmin()
-    {
-        if (isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
-            return $_SESSION['admin'] === true;
-        } else {
-            return false;
-        }
-    }
 }
