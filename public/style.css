@@ -111,6 +111,7 @@ footer{
 #admin_background{
     background-color: cornflowerblue;
     height: 100vh;
+    margin: 0;
 }
 
 #admin_section{
