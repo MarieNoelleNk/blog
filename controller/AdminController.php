@@ -11,6 +11,7 @@ class AdminController
 
     public function __construct()
     {
+
         $this->post= new PostManager();
         $this->comments = new CommentManager();
 
@@ -130,7 +131,6 @@ class AdminController
 
     public function logOut()
     {
-        session_start();
         session_destroy();
         header('Location:index.php');
     }

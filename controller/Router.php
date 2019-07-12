@@ -102,27 +102,45 @@ class Router
 
                     case 'adminPost':
 
-                        $this->adminCtrl->readAllPosts();
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
+
+                            $this->adminCtrl->readAllPosts();
+
+                        }else{
+
+                            echo "Vous n'êtes pas connecté(e)!";
+                        }
 
                         break;
 
                     // Afficher l'éditeur de texte
 
                     case 'getPage':
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                        $this->adminCtrl->goToCreate();
+                            $this->adminCtrl->goToCreate();
+                        }else{
 
-                        break;
+                            echo "Vous n'êtes pas connecté(e)!";
+                        }
+
+                    break;
 
                     // Ajouter un nouveau chapitre
 
-                    case 'addPost';
+                    case 'addPost':
 
-                        if (!empty($_POST['chapter']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
 
-                            $this->adminCtrl->createPost($_POST['chapter'],$_POST['title'],$_POST['content']);
-                        } else {
-                            throw new Exception('Remplissez tous les champs du chapitre:(');
+                            if (!empty($_POST['chapter']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                                $this->adminCtrl->createPost($_POST['chapter'], $_POST['title'], $_POST['content']);
+                            } else {
+                                throw new Exception('Remplissez tous les champs du chapitre:(');
+                            }
+                        }else {
+
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
                     break;
@@ -131,26 +149,34 @@ class Router
 
                     case 'readPost';
 
-                        if(isset($_GET['id'])&& $_GET['id']>0){
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
 
-                            $this->adminCtrl->readPost($_GET['id']);
-                        }
-                        else{
-                            throw new Exception('Identifiant de chapitre non valide');
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+                                $this->adminCtrl->readPost($_GET['id']);
+                            } else {
+                                throw new Exception('Identifiant de chapitre non valide');
+                            }
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
-                        break;
+                    break;
 
                     // Afficher l'éditeur de chapitre
 
                     case 'editPost':
 
-                        if(isset($_GET['id'])&& $_GET['id']>0){
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
 
-                            $this->adminCtrl->goToPost($_GET['id']);
-                        }
-                        else{
-                            throw new Exception('Identifiant de chapitre non valide');
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+                                $this->adminCtrl->goToPost($_GET['id']);
+                            } else {
+                                throw new Exception('Identifiant de chapitre non valide');
+                            }
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
                         break;
@@ -159,16 +185,22 @@ class Router
 
                     case 'modifyPost':
 
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])) {
 
-                            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                            if (!empty($_GET['id']) && $_GET['id'] > 0) {
 
-                                $this->adminCtrl->updatePost($_POST['title'], $_POST['content'],$_GET['id']);
-                            }else{
-                                throw new Exception('Remplissez tous les champs de ce chapitre:(');
+                                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+
+                                    $this->adminCtrl->updatePost($_POST['title'], $_POST['content'], $_GET['id']);
+                                } else {
+                                    throw new Exception('Remplissez tous les champs de ce chapitre:(');
+                                }
+                            } else {
+                                throw new Exception('cette mise à jour ne peut aboutir :(');
                             }
-                        } else {
-                            throw new Exception('cette mise à jour ne peut aboutir :(');
+                        }else{
+
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
                         break;
@@ -177,33 +209,46 @@ class Router
 
                     case 'deletePost':
 
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                            $this->adminCtrl->deletePost($_GET['id']);
-                        } else {
-                            throw new Exception('identifiant non conforme pour la suppression :(');
+                            if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                                $this->adminCtrl->deletePost($_GET['id']);
+                            } else {
+                                throw new Exception('identifiant non conforme pour la suppression :(');
+                            }
+                        }else {
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
-
                         break;
 
                     // Afficher l'interface de modération de commentaires
 
                     case 'showComment':
 
-                        $this->adminCtrl->showAllComments();
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                        break;
+                            $this->adminCtrl->showAllComments();
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
+                        }
+                    break;
 
                     // Afficher un commentaire
 
                     case 'singleComment':
 
-                        if (isset($_GET['id']) && $_GET['id'] > 0) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                            $this->adminCtrl->readComment($_GET['id']);
-                        } else {
-                            throw new Exception('Identifiant de com non valide');
+                            if (isset($_GET['id']) && $_GET['id'] > 0) {
 
+                                $this->adminCtrl->readComment($_GET['id']);
+                            } else {
+                                throw new Exception('Identifiant de com non valide');
+
+                            }
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
                         break;
@@ -212,12 +257,17 @@ class Router
 
                     case 'approveComment':
 
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                            $this->adminCtrl->validateComment($_GET['id']);
+                            if (!empty($_GET['id']) && $_GET['id'] > 0) {
 
-                        } else {
-                            throw new Exception('identifiant non conforme pour la validation :(');
+                                $this->adminCtrl->validateComment($_GET['id']);
+
+                            } else {
+                                throw new Exception('identifiant non conforme pour la validation :(');
+                            }
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
                         break;
 
@@ -225,11 +275,16 @@ class Router
 
                     case 'deleteComment':
 
-                        if (!empty($_GET['id']) && $_GET['id'] > 0) {
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
 
-                            $this->adminCtrl->removeComment($_GET['id']);
-                        } else {
-                            throw new Exception('identifiant non conforme pour la suppression :(');
+                            if (!empty($_GET['id']) && $_GET['id'] > 0) {
+
+                                $this->adminCtrl->removeComment($_GET['id']);
+                            } else {
+                                throw new Exception('identifiant non conforme pour la suppression :(');
+                            }
+                        }else {
+                            echo "Vous n'êtes pas connecté(e)!";
                         }
 
                         break;
@@ -238,7 +293,13 @@ class Router
 
                     case 'disconnect':
 
-                        $this->adminCtrl->logOut();
+                        if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
+
+                            $this->adminCtrl->logOut();
+
+                        }else{
+                            echo "Vous n'êtes pas connecté(e)!";
+                        }
 
                         break;
 
