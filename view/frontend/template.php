@@ -42,6 +42,8 @@
 
         <h4 class="text-center">Roman écrit et publié en 2019</h4>
 
+    </footer>
+
     </body>
 
 </html>

@@ -11,13 +11,11 @@
 
         <thead>
         <tr>
-            <th>Chapitre</th>
-            <th>Titre</th>
-            <th>Date</th>
-            <th>Contenu</th>
-            <th>Modification</th>
-            <th>Supression</th>
-            <th>Affichage</th>
+            <th class="text-center">Chapitre</th>
+            <th class="text-center">Titre</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Contenu</th>
+            <th class="text-center">Action</th>
         </tr>
         </thead>
 
@@ -33,9 +31,11 @@
                 <td data-title="contenu">
                     <?= mb_substr($post['content'],0,20); ?>...
                 </td>
-                <td data-title="edition"><a href="index.php?action=editPost&amp;id=<?= $post['id']; ?>">Editer</a></td>
-                <td data-title="suppression"><a href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Supprimer</a></td>
-                <td data-title="lecture"><a href="index.php?action=readPost&amp;id=<?= $post['id']; ?>">lire</a></td>
+                <td data-title="Action">
+                    <a class="btn btn-success" href="index.php?action=readPost&amp;id=<?= $post['id']; ?>">Lire</a>
+                    <a class="btn btn-primary" href="index.php?action=editPost&amp;id=<?= $post['id']; ?>">Editer</a>
+                    <a class="btn btn-danger" href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Supprimer</a>
+                </td>
 
             </tr>
 

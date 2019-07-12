@@ -61,7 +61,7 @@
                             <?= mb_substr($post['content'],0,150); ?>...
                         </p>
 
-                        <a href="index.php?action=post&amp;id=<?= $post['id']; ?>" class="btn btn-outline-secondary">Voir en intégralité</a></p>
+                        <a href="index.php?action=post&amp;id=<?= $post['id']; ?>" class="btn btn-outline-secondary">Voir en intégralité</a>
                     </div>
 
                 </div>
