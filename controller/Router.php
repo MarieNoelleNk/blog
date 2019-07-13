@@ -108,7 +108,7 @@ class Router
 
                         }else{
 
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;
@@ -121,7 +121,7 @@ class Router
                             $this->adminCtrl->goToCreate();
                         }else{
 
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                     break;
@@ -140,7 +140,7 @@ class Router
                             }
                         }else {
 
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                     break;
@@ -158,7 +158,7 @@ class Router
                                 throw new Exception('Identifiant de chapitre non valide');
                             }
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                     break;
@@ -176,7 +176,7 @@ class Router
                                 throw new Exception('Identifiant de chapitre non valide');
                             }
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;
@@ -200,7 +200,7 @@ class Router
                             }
                         }else{
 
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;
@@ -218,7 +218,7 @@ class Router
                                 throw new Exception('identifiant non conforme pour la suppression :(');
                             }
                         }else {
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
                         break;
 
@@ -230,7 +230,7 @@ class Router
 
                             $this->adminCtrl->showAllComments();
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
                     break;
 
@@ -248,7 +248,7 @@ class Router
 
                             }
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;
@@ -267,7 +267,7 @@ class Router
                                 throw new Exception('identifiant non conforme pour la validation :(');
                             }
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
                         break;
 
@@ -284,7 +284,7 @@ class Router
                                 throw new Exception('identifiant non conforme pour la suppression :(');
                             }
                         }else {
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;
@@ -298,7 +298,7 @@ class Router
                             $this->adminCtrl->logOut();
 
                         }else{
-                            echo "Vous n'êtes pas connecté(e)!";
+                            $this->userCtrl->redirectForConnexion();
                         }
 
                         break;

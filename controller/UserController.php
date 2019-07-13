@@ -64,6 +64,10 @@ class UserController
         require'view/frontend/loginView.php';
     }
 
+    public function redirectForConnexion(){
+        require'view/frontend/loginView.php';
+    }
+
     function connectAsAdmin($login,$password)
     {
         $adminInfo = $this->admin->checkLogin($login,$password);
