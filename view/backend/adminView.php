@@ -25,13 +25,13 @@
 
             <tr>
 
-                <td data-title="chapitre"><?= $post['chapter']; ?> </td>
-                <td data-title="titre"><?= $post['title']; ?></td>
-                <td data-title="date"><?= $post['date_creation']; ?></td>
-                <td data-title="contenu">
+                <td data-title="Chapitre"><?= $post['chapter']; ?> </td>
+                <td data-title="Titre"><?= $post['title']; ?></td>
+                <td data-title="Date"><?= $post['date_creation']; ?></td>
+                <td data-title="Contenu">
                     <?= mb_substr($post['content'],0,20); ?>...
                 </td>
-                <td data-title="Action">
+                <td data-title="Actions">
                     <a class="btn btn-success" href="index.php?action=readPost&amp;id=<?= $post['id']; ?>">Lire</a>
                     <a class="btn btn-primary" href="index.php?action=editPost&amp;id=<?= $post['id']; ?>">Editer</a>
                     <a class="btn btn-danger" href="index.php?action=deletePost&amp;id=<?= $post['id']; ?>">Supprimer</a>
