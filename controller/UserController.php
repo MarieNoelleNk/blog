@@ -35,9 +35,9 @@ class UserController
 
     }
 
-    public function createComment($postId,$author,$comments)
+    public function createComment($postId,$chapter,$author,$comments)
     {
-        $comment = $this->comment->addComment($postId,$author,$comments);
+        $comment = $this->comment->addComment($postId,$chapter,$author,$comments);
 
         if ($comment){
             header('Location: index.php?action=post&id='.$postId);

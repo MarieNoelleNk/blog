@@ -35,15 +35,15 @@ class CommentManager extends Manager {
 
     public function getAllComments () {
 
-        $comments= $this->database->query('SELECT id, post_id, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation,report_comment FROM comments ORDER BY report_comment DESC');
+        $comments= $this->database->query('SELECT id, post_id, chapter, author, comments, date_format(publication, "%d/%m/%Y à  %Hh%imin%ss")AS date_creation,report_comment FROM comments ORDER BY report_comment DESC');
 
         return $comments;
     }
 
-    public function addComment($postId, $author, $comment){
+    public function addComment($postId,$chapter, $author, $comment){
 
-        $new_comment = $this->database->prepare('INSERT INTO comments (post_id,author,comments,publication) VALUES (?, ?,?,NOW())');
-        $new_comment->execute(array($postId, $author, $comment));
+        $new_comment = $this->database->prepare('INSERT INTO comments (post_id,chapter, author,comments,publication) VALUES (?,?, ?,?,NOW())');
+        $new_comment->execute(array($postId,$chapter, $author, $comment));
 
         return $new_comment;
     }

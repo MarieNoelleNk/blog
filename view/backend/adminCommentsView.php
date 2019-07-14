@@ -23,7 +23,7 @@
         <?php foreach ($comments as $comment): ?>
 
             <tr>
-                <td data-title="Chapitre" class="text-center"><?= $comment['post_id']; ?></td>
+                <td data-title="Chapitre" class="text-center"><?= $comment['chapter']; ?></td>
                 <td data-title="Date" class="text-center"><?= $comment['date_creation']; ?></td>
                 <td data-title="Contenu">
                     <?= mb_substr($comment['comments'],0,20); ?>...

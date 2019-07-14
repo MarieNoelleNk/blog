@@ -44,9 +44,9 @@ class Router
 
                         if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-                            if (!empty($_POST['author']) && !empty($_POST['comments'])) {
+                            if (!empty($_POST['chapter']) && !empty($_POST['author']) && !empty($_POST['comments'])) {
 
-                                $this->userCtrl->createComment($_GET['id'], $_POST['author'], $_POST['comments']);
+                                $this->userCtrl->createComment($_GET['id'], $_POST['chapter'], $_POST['author'], $_POST['comments']);
                             } else {
                                 throw new Exception('Remplissez tous les champs de ce commentaire');
                             }

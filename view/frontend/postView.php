@@ -67,8 +67,9 @@
 
     <p>
         <label for="comments">Message</label><br>
-        <textarea name="comments"  cols="30" rows="10" required></textarea>
+        <textarea name="comments"  id="comments" cols="30" rows="10" required></textarea>
         <input type="hidden" name="id" value="<?= $post['id'] ?>" />
+        <input type="hidden" name="chapter" value="<?=$post['chapter']?>">
     </p>
 
     <p><input type="submit" class="btn btn-success" value="Envoyer"></p>
